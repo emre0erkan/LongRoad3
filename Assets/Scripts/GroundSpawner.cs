@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-    public GameObject groundTile;
+    [SerializeField] GameObject groundTile;
     Vector3 nextSpawnPoint;
 
     public void SpawnTile()

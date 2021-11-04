@@ -6,6 +6,15 @@ public class GroundTile : MonoBehaviour
     private GameObject[] obstacles;
     GroundSpawner groundSpawner;
 
+    [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] GameObject obstaclePrefab1;
+    [SerializeField] GameObject obstaclePrefab2;
+    [SerializeField] GameObject obstaclePrefab3;
+    int arrayIndex;
+    GameObject currentPoint;
+
+    [SerializeField] GameObject coinPrefab;
+
     private void Start()
     {
         obstacles = new GameObject[4];
@@ -19,18 +28,6 @@ public class GroundTile : MonoBehaviour
         groundSpawner.SpawnTile();
         Destroy(gameObject, 2);
     }
-
-    void Update()
-    {
-
-    }
-
-    public GameObject obstaclePrefab;
-    public GameObject obstaclePrefab1;
-    public GameObject obstaclePrefab2;
-    public GameObject obstaclePrefab3;
-    int arrayIndex;
-    GameObject currentPoint;
 
     void SpawnObstacle()
     {
@@ -51,8 +48,6 @@ public class GroundTile : MonoBehaviour
         //Spawn the obstacle at that position
         Instantiate(currentPoint, spawnPoint.position, Quaternion.identity, transform);
     }
-
-    public GameObject coinPrefab;
 
     void SpawnCoins()
     {
