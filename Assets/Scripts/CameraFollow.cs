@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform car;
+    [SerializeField] Transform car;
     Vector3 offset;
     
     void Start()

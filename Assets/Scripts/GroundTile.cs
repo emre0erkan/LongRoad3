@@ -34,7 +34,7 @@ public class GroundTile : MonoBehaviour
 
     void SpawnObstacle()
     {
-       
+
         obstacles[0] = obstaclePrefab;
         obstacles[1] = obstaclePrefab1;
         obstacles[2] = obstaclePrefab2;
@@ -43,7 +43,7 @@ public class GroundTile : MonoBehaviour
         arrayIndex = Random.Range(0, obstacles.Length);
 
         currentPoint = obstacles[arrayIndex];
-        
+
         //Choose a random point to spawn the obstacle
         int obstacleSpawnIndex = Random.Range(2, 6);
         Transform spawnPoint = transform.GetChild(obstacleSpawnIndex).transform;
@@ -56,21 +56,18 @@ public class GroundTile : MonoBehaviour
 
     void SpawnCoins()
     {
-        int coinsToSpawn = 10;
-        for (int i = 0; i < coinsToSpawn; i++)
-        {
             GameObject temp = Instantiate(coinPrefab, transform);
             temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
-        }
+
     }
 
-    Vector3 GetRandomPointInCollider (Collider collider)
+    Vector3 GetRandomPointInCollider(Collider collider)
     {
         Vector3 point = new Vector3(Random.Range(collider.bounds.min.x, collider.bounds.max.x),
                                     Random.Range(collider.bounds.min.y, collider.bounds.max.y),
-                                    Random.Range(collider.bounds.min.z, collider.bounds.max.z)); 
+                                    Random.Range(collider.bounds.min.z, collider.bounds.max.z));
 
-        if(point != collider.ClosestPoint(point))
+        if (point != collider.ClosestPoint(point))
         {
             point = GetRandomPointInCollider(collider);
         }

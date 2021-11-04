@@ -17,7 +17,7 @@ public class GroundSpawner : MonoBehaviour
         {
             SpawnTile();
         }
-        
+
     }
 
 }
