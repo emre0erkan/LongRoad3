@@ -12,11 +12,6 @@ public class Obstacle : MonoBehaviour
         carMovement = GameObject.FindObjectOfType<CarMovement>();
     }
 
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Car")

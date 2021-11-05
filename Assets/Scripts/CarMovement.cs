@@ -34,11 +34,12 @@ public class CarMovement : MonoBehaviour
         Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         Vector3 horizontalMove = transform.right * horizontalInput * Time.fixedDeltaTime * horizontalMultiplier;
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
+
+        rb.position = new Vector3(Mathf.Clamp(rb.position.x, -3.5f, 3.5f), rb.position.y, rb.position.z);
     }
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-
         if (transform.position.y < -3) Die();
     }
 
