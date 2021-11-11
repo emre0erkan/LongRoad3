@@ -5,30 +5,21 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    int score;
+    public int score;
+ 
     public static GameManager inst;
 
-    [SerializeField] Text scoreText;
+    [SerializeField] public Text scoreText;
 
     public void IncrementScore()
     {
-        score++;
+        score = score + 5;
         scoreText.text = "Score: " + score;
     }
 
     private void Awake()
     {
-        inst = this;    
+        inst = this;
     }
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
