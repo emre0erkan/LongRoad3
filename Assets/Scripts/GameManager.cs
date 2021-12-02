@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public int score;
- 
+    public int highScore;
+
     public static GameManager inst;
 
     [SerializeField] public Text scoreText;
+    [SerializeField] public Text highScoreText;
 
     public void IncrementScore()
     {

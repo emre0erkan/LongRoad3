@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class CarMovement : MonoBehaviour
 {
 
+    public GameObject failMenuUI;
     public bool alive = true;
 
     [SerializeField] Rigidbody rb;
@@ -45,14 +46,19 @@ public class CarMovement : MonoBehaviour
 
     public void Die()
     {
+        failMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        PauseMenu.GameIsPaused = true;
         alive = false;
         // Restart the game
-        Invoke("Restart", 1);
+        //Invoke("Restart", 1);
     }
 
-    void Restart()
+
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 
 }
