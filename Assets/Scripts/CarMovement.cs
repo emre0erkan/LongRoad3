@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class CarMovement : MonoBehaviour
 {
 
-    bool alive = true;
+    public bool alive = true;
 
     [SerializeField] Rigidbody rb;
-    [SerializeField] int speed = 15;
+    [SerializeField] float speed = 15;
     [SerializeField] float maxspeed, minspeed;
     float horizontalInput;
     [SerializeField] float horizontalMultiplier = 9;
@@ -24,7 +24,7 @@ public class CarMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            if (speed < maxspeed) speed++;
+            if (speed < maxspeed) speed = speed + 0.2f;
         }
         if (Input.GetKey(KeyCode.S))
         {

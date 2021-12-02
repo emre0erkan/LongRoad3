@@ -12,8 +12,9 @@ public class GroundSpawner : MonoBehaviour
 
         if (spawnItems)
         {
-            temp.GetComponent<GroundTile>().SpawnObstacle();
+            temp.GetComponent<PickingObstacle>().SpawnObstacle();
             temp.GetComponent<GroundTile>().SpawnCoins();
+            temp.GetComponent<PickingBuilding>().SpawnBuilding();
         }
 
     }
