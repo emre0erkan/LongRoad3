@@ -39,19 +39,18 @@ public class GameManager : MonoBehaviour
             score += scorePerSecond * Time.deltaTime;
             scoreText.text = "Score: " + (int)score;
         }
-    }
-
-    public void IncrementScore()
-    {
-        score = score + 5;
-        scoreText.text = "Score: " + (int)score;
-
         if (score > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", (int)score);
             score2 = (int)score;
             highScoreText.text = score2.ToString();
         }
+        }
+
+    public void IncrementScore()
+    {
+        score = score + 5;
+        scoreText.text = "Score: " + (int)score;
     }
 
     private void Awake()
