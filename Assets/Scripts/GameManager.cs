@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public float score;
+    public int score2;
     public static GameManager inst;
     public float scorePerSecond;
 
@@ -38,21 +39,20 @@ public class GameManager : MonoBehaviour
             score += scorePerSecond * Time.deltaTime;
             scoreText.text = "Score: " + (int)score;
         }
-
-        if (score > PlayerPrefs.GetInt("HighScore", 0))
-        {
-            PlayerPrefs.SetFloat("HighScore", score);
-            highScoreText.text = score.ToString();
-        }
     }
 
     public void IncrementScore()
     {
         score = score + 5;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + (int)score;
 
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", (int)score);
+            score2 = (int)score;
+            highScoreText.text = score2.ToString();
+        }
     }
-
 
     private void Awake()
     {
