@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int score;
+    public float score;
     public static GameManager inst;
+    public float scorePerSecond;
 
     [SerializeField] public Text scoreText;
     [SerializeField] public Text highScoreText;
@@ -14,7 +15,35 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();    
+        highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+    }
+
+    private void Update()
+    {
+        if (score < 75)
+        {
+            scorePerSecond = 1;
+            score += scorePerSecond * Time.deltaTime;
+            scoreText.text = "Score: " + (int)score;
+        }
+        else if (score > 75 && score < 125)
+        {
+            scorePerSecond = 4;
+            score += scorePerSecond * Time.deltaTime;
+            scoreText.text = "Score: " + (int)score;
+        }
+        else if (score > 125)
+        {
+            scorePerSecond = 8;
+            score += scorePerSecond * Time.deltaTime;
+            scoreText.text = "Score: " + (int)score;
+        }
+
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetFloat("HighScore", score);
+            highScoreText.text = score.ToString();
+        }
     }
 
     public void IncrementScore()
@@ -22,12 +51,8 @@ public class GameManager : MonoBehaviour
         score = score + 5;
         scoreText.text = "Score: " + score;
 
-        if(score > PlayerPrefs.GetInt("HighScore", 0)) 
-        { 
-            PlayerPrefs.SetInt("HighScore", score);
-            highScoreText.text = score.ToString();
-        }
     }
+
 
     private void Awake()
     {
