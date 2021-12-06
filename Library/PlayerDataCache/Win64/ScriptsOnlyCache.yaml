@@ -480,7 +480,7 @@ ScriptsOnlyBuild:
     className: PickingBuilding
   - hash:
       serializedVersion: 2
-      Hash: 4191eea151a20550eddfd373c444f507
+      Hash: da55e8b0fd0041840a43cff95a989f40
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
