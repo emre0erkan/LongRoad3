@@ -14,10 +14,9 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Car")
+        if (collision.gameObject.name == "Car")          //if car hits any obstacle
         {
-            //Kill the player
-            carMovement.Die();
+            carMovement.Die();       //Kill the player
         }
 
 

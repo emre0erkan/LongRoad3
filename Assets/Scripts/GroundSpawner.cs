@@ -11,21 +11,21 @@ public class GroundSpawner : MonoBehaviour
         nextSpawnPoint = temp.transform.GetChild(1).transform.position;
 
         if (spawnItems)
-        {
-            temp.GetComponent<PickingObstacle>().SpawnObstacle();
-            temp.GetComponent<GroundTile>().SpawnCoins();
-            temp.GetComponent<PickingBuilding>().SpawnBuilding();
+        {                                                               //spawn;
+            temp.GetComponent<PickingObstacle>().SpawnObstacle();       //obstacles,
+            temp.GetComponent<GroundTile>().SpawnCoins();               //coins,
+            temp.GetComponent<PickingBuilding>().SpawnBuilding();       //buildings
         }
 
     }
 
     private void Start()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 15; i++)      //spawning 15 roads at max
         {
             if (i < 3)
             {
-                SpawnTile(false);
+                SpawnTile(false);        //spawning first obstacles and coins a little later
             }
             else
             {

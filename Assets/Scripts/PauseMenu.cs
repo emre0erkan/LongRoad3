@@ -15,20 +15,20 @@ public class PauseMenu : MonoBehaviour
             
             if (GameIsPaused)
             {
-                Resume();
+                Resume();                       //resume if paused
             }
             else
             {
-                Pause();
+                Pause();                        //pause if game is running
             }
         }    
     }
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+        pauseMenuUI.SetActive(false);           //close the menu
+        Time.timeScale = 1f;                    //start the time
+        GameIsPaused = false;                   
     }
 
     void Pause()

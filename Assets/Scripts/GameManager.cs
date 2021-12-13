@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        highScoreText.text ="High Score:" + PlayerPrefs.GetInt("HighScore", 0).ToString();      //print the highscore at first
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         if (score < 75)
         {
             scorePerSecond = 1;
-            score += scorePerSecond * Time.deltaTime;
+            score += scorePerSecond * Time.deltaTime;            //passive score increasing faster as we score more
             scoreText.text = "Score: " + (int)score;
         }
         else if (score > 75 && score < 125)
@@ -43,13 +43,13 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", (int)score);
             score2 = (int)score;
-            highScoreText.text = score2.ToString();
+            highScoreText.text = "High Score:" + score2.ToString();
         }
         }
 
     public void IncrementScore()
     {
-        score = score + 5;
+        score = score + 5;                          //score 5 points if coin collected
         scoreText.text = "Score: " + (int)score;
     }
 
